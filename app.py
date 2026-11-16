@@ -566,7 +566,7 @@ with r2_c2:
     """, unsafe_allow_html=True)
 
     # Notebook Cell 52: px.scatter_mapbox
-    fig_map = px.scatter_mapbox(
+    fig_map = px.scatter_map(
         patients.dropna(subset=['LAT', 'LON']),
         lat='LAT',
         lon='LON',
@@ -574,7 +574,7 @@ with r2_c2:
         color='COUNTY' if loc_choice == "By County" else ('CITY' if loc_choice == "By City" else 'STATE'),
         zoom=9.1,
         center=dict(lat=42.3601, lon=-71.0589),
-        mapbox_style='open-street-map'
+        map_style='open-street-map'
     )
     fig_map.update_layout(
         height=280,
@@ -621,7 +621,6 @@ with r3_c1:
         paper_bgcolor="rgba(0,0,0,0)",
         yaxis=dict(
             title="Number of Encounters",
-            titlefont=dict(color="#0f172a", size=11),
             tickfont=dict(color="#334155", size=11),
             showgrid=True,
             gridcolor="#e2e8f0"
